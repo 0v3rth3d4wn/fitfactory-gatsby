@@ -54,8 +54,8 @@ function BusinessHours() {
             </h2>
           )}
 
-          {businessHoursRanges.map(range => (
-            <div className="mb-11">
+          {businessHoursRanges.map((range, index) => (
+            <div className="mb-11" key={index}>
               <div className="text-base mb-2 uppercase text-white font-semibold">
                 {range.days}
               </div>

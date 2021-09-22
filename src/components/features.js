@@ -23,7 +23,7 @@ const featuresQuery = graphql`
     }
   }
 `
-// Icons for each features importet as SVG and used like a component
+// Icons for each features imported as SVG and used like a component
 const icons = {
   access: Access,
   cardio: Cardio,
