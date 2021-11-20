@@ -114,7 +114,7 @@ const Contact = () => {
         {/* Google Maps url */}
         {googleMapsLink && (
           <div className="flex flex-wrap justify-center items-center mb-16">
-            <Button target={googleMapsLink.target} to={googleMapsLink.url}>
+            <Button out target={googleMapsLink.target} to={googleMapsLink.url}>
               {googleMapsLink.title}
             </Button>
           </div>

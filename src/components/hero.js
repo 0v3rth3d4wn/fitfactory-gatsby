@@ -60,7 +60,7 @@ const Hero = () => {
       /> */}
 
       <div className="absolute z-30 w-full top-8 py-20 left-0 flex flex-wrap flex-col justify-center items-center px-4">
-        <TwentyFourSeven className="px-8 sm:w-[600px]" />
+        <TwentyFourSeven className="w-full px-8 sm:w-[600px]" />
       </div>
 
       <div className="absolute z-30 h-full w-full top-0 left-0 flex flex-wrap flex-col justify-end items-center px-4">
