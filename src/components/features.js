@@ -43,14 +43,6 @@ const Features = () => {
   return (
     features && (
       <div className="relative overflow-hidden">
-        {/* <StaticImage
-          alt="Yellow grid background"
-          className="absolute block top-0 left-0 w-full h-auto"
-          layout="fullWidth"
-          src="../assets/images/yellow-grid-bgr.png"
-          quality="100"
-        /> */}
-
         <div className="flex flex-wrap relative justify-between items-center">
           {features.map(({ feature }, index) => (
             <div

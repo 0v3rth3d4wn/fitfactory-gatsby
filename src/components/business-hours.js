@@ -44,7 +44,7 @@ function BusinessHours() {
           className="absolute block inset-0 w-full h-full"
           layout="fullWidth"
           src="../assets/images/backgrounds/working-hours-bgr.jpg"
-          quality="100"
+          quality="75"
           objectPosition="center top"
           style={{ position: 'absolute' }}
         />

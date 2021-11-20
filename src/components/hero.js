@@ -53,16 +53,13 @@ const Hero = () => {
     },
   } = useStaticQuery(heroQuery)
 
+  // Get window height
   const windowHeight = useWindowHeight()
 
+  // Whenever window height changes, set the --vh css var to the window height
   useEffect(() => {
     setViewportProperty(document.documentElement)
   }, [windowHeight])
-
-  // window.addEventListener(
-  //   'resize',
-  //   setViewportProperty(document.documentElement)
-  // )
 
   return (
     <div className="h-screen bg-black text-white pt-[4.5rem] relative">
@@ -72,18 +69,9 @@ const Hero = () => {
         alt="FitFactory 24/7 hero"
         layout="fullWidth"
         loading="eager"
-        quality="100"
+        quality="75"
         style={{ position: 'absolute' }}
       />
-      {/* <StaticImage
-        className="absolute block object-cover h-full w-full inset-0"
-        src="../assets/images/hero-bgr-bright.jpg"
-        alt="FitFactory 24/7 hero"
-        layout="fullWidth"
-        loading="eager"
-        quality="100"
-        style={{ position: 'absolute' }}
-      /> */}
 
       <div className="absolute z-30 w-full top-8 py-20 left-0 flex flex-wrap flex-col justify-center items-center px-4">
         <TwentyFourSeven className="w-full px-8 sm:w-[600px]" />

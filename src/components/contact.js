@@ -79,7 +79,7 @@ const Contact = () => {
         className="absolute block inset-0 w-full h-full"
         layout="fullWidth"
         src="../assets/images/backgrounds/contact-bgr.jpg"
-        quality="100"
+        quality="75"
         objectPosition="bottom"
         style={{ position: 'absolute' }}
       />
