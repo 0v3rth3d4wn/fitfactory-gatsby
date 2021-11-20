@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { graphql, useStaticQuery } from 'gatsby'
+import { useWindowHeight } from '@react-hook/window-size'
+
 import Button from './button'
 import TwentyFourSeven from '../assets/images/hero-247.svg'
-import LogoPath from './logo-path'
 
 // Hero data graphql
 const heroQuery = graphql`
@@ -22,6 +23,20 @@ const heroQuery = graphql`
     }
   }
 `
+function setViewportProperty(doc) {
+  let prevClientHeight
+  const customVar = `--${'vh'}`
+  function handleResize() {
+    const { clientHeight } = doc
+    if (clientHeight === prevClientHeight) return
+    requestAnimationFrame(function updateViewportHeight() {
+      doc.style.setProperty(customVar, `${clientHeight * 0.01}px`)
+      prevClientHeight = clientHeight
+    })
+  }
+  handleResize()
+  return handleResize
+}
 
 const Hero = () => {
   // Get hero heading and CTA button
@@ -37,6 +52,17 @@ const Hero = () => {
       },
     },
   } = useStaticQuery(heroQuery)
+
+  const windowHeight = useWindowHeight()
+
+  useEffect(() => {
+    setViewportProperty(document.documentElement)
+  }, [windowHeight])
+
+  // window.addEventListener(
+  //   'resize',
+  //   setViewportProperty(document.documentElement)
+  // )
 
   return (
     <div className="h-screen bg-black text-white pt-[4.5rem] relative">
