@@ -76,12 +76,14 @@ const Contact = () => {
     <div className="relative overflow-hidden">
       <StaticImage
         alt="Black grid background"
-        className="absolute block top-0 left-0 w-full"
+        className="absolute block inset-0 w-full h-full"
         layout="fullWidth"
-        src="../assets/images/black-grid-bgr.png"
+        src="../assets/images/backgrounds/contact-bgr.jpg"
         quality="100"
+        objectPosition="bottom"
+        style={{ position: 'absolute' }}
       />
-      <div className="px-4 pt-5 relative z-30 flex flex-wrap items-center justify-center text-center">
+      <div className="px-4 pt-12 relative z-30 flex flex-wrap items-center justify-center text-center">
         <Separator className="mb-6" />
         {/* Contact heading */}
         {contactHeading && (

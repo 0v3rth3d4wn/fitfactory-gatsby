@@ -41,22 +41,24 @@ function BusinessHours() {
       <div className="relative overflow-hidden">
         <StaticImage
           alt="Black grid background"
-          className="absolute block top-0 left-0 w-full h-full"
+          className="absolute block inset-0 w-full h-full"
           layout="fullWidth"
-          src="../assets/images/black-grid-bgr.png"
+          src="../assets/images/backgrounds/working-hours-bgr.jpg"
           quality="100"
+          objectPosition="center top"
+          style={{ position: 'absolute' }}
         />
         <div className="px-4 py-12 relative z-30 flex flex-wrap items-center justify-center text-center">
           <Separator className="mb-8" />
           {businessHoursHeading && (
-            <h2 className="text-primary text-2xl text-center uppercase font-bold mb-6">
+            <h2 className="text-white text-2xl text-center uppercase font-bold mb-6">
               {businessHoursHeading}
             </h2>
           )}
 
           {businessHoursRanges.map((range, index) => (
             <div className="mb-11" key={index}>
-              <div className="text-base mb-2 uppercase text-white font-semibold">
+              <div className="text-base mb-2 uppercase text-gray font-semibold tracking-widest">
                 {range.days}
               </div>
               <div className="text-gray font-bold text-5xl">{range.time}</div>
