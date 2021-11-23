@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import useScrollPosition from '@react-hook/window-scroll'
 import { Link } from 'gatsby'
@@ -8,20 +8,23 @@ import Logo from './logo'
 const Header = () => {
   const headerHeight = 72
   const scrollY = useScrollPosition(60)
-  const [currentScrollY, setCurrentScrollY] = useState(0)
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true)
+  let isHeaderVisible = true
 
+  // Use useRef to store the previous value of scrollY
+  const prevScrollYRef = useRef(0)
+
+  // Store the current scrollY after the render method
   useEffect(() => {
-    setCurrentScrollY(prevScroll => {
-      // If prevScroll is >= it means we are scrolling up, else we are scrolling down
-      // If scrolling up - show the header, else hide it
-      if (scrollY >= headerHeight) {
-        setIsHeaderVisible(prevScroll >= scrollY)
-      }
-
-      return scrollY
-    })
+    prevScrollYRef.current = scrollY
   }, [scrollY])
+
+  /**
+   * If the current scrollY value is smaler or equals to
+   * the previous scrollY value - we are scrolling up (we are closer to the top) and then showing the header,
+   * otherwise we are scrolling down (the current scrollY becomes larger) thus we are hiding the header
+   * Trying to emulate Headroom.js on a basic level
+   */
+  isHeaderVisible = scrollY <= prevScrollYRef.current
 
   return (
     <>

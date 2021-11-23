@@ -64,18 +64,26 @@ const Hero = () => {
   return (
     <div className="h-screen bg-black text-white pt-[4.5rem] relative">
       <StaticImage
-        className="absolute block object-cover h-full w-full inset-0 brightness-50"
+        className="absolute block object-cover h-full w-full inset-0 opacity-50"
         src="../assets/images/hero-bgr-bright.jpg"
         alt="FitFactory 24/7 hero"
         layout="fullWidth"
         loading="eager"
         quality="75"
+        breakpoints={[480, 750, 1080, 1366, 1920]}
         style={{ position: 'absolute' }}
       />
 
-      <div className="absolute z-30 w-full top-8 py-20 left-0 flex flex-wrap flex-col justify-center items-center px-4">
-        <TwentyFourSeven className="w-full px-8 sm:w-[600px]" />
-      </div>
+      <StaticImage
+        className="absolute block object-cover h-full w-full inset-0 opacity-50 blur-3xl"
+        src="../assets/images/hero-bgr-bright.jpg"
+        alt="FitFactory 24/7 hero"
+        layout="fullWidth"
+        loading="eager"
+        quality="75"
+        breakpoints={[480, 750, 1080, 1366, 1920]}
+        style={{ position: 'absolute' }}
+      />
 
       <div className="absolute z-30 h-full w-full top-0 left-0 flex flex-wrap flex-col justify-end items-center px-4">
         {/* CTA Button */}

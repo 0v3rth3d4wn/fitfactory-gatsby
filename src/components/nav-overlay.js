@@ -2,6 +2,7 @@ import ReactDom from 'react-dom'
 import React from 'react'
 import { graphql, Link, useStaticQuery } from 'gatsby'
 import { XIcon } from '@heroicons/react/outline'
+import { StaticImage } from 'gatsby-plugin-image'
 
 // Get header menu from WP
 const navItemsQuery = graphql`
@@ -28,7 +29,13 @@ const NavOverlay = ({ onClick }) => {
   } = useStaticQuery(navItemsQuery)
 
   return ReactDom.createPortal(
-    <div className="fixed top-0 bottom-0 right-0 left-0 bg-black z-50">
+    <div className="fixed inset-0 bg-black z-50">
+      <StaticImage
+        src="../assets/images/backgrounds/working-hours-bgr.jpg"
+        layout="fullWidth"
+        className="fixed inset-0"
+        style={{ position: 'fixed' }}
+      />
       {/* Close nav btn */}
       <button
         className="absolute top-4 right-4 block"
@@ -45,7 +52,7 @@ const NavOverlay = ({ onClick }) => {
             {navItems.map((navItem, index) => (
               <li key={index}>
                 <Link
-                  className="text-white hover:text-primary transition-colors duration-300 font-bold text-2xl uppercase mb-4 block"
+                  className="text-white hover:text-primary transition-colors duration-300 font-bold text-2xl uppercase mb-6 block"
                   to={navItem.url}
                 >
                   {navItem.label}

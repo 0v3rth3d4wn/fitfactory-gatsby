@@ -19,7 +19,7 @@ const Nav = () => {
           <MenuIcon className="text-white w-10 h-10" />
         )}
       </button>
-      {/* Nav overlay with nav items if isNavOpen is true */}
+      {/* Nav overlay with nav items if isNavOpen is true - pass setIsNavOpen false to close the overlay */}
       {isNavOpen && <NavOverlay onClick={() => setIsNavOpen(false)} />}
     </div>
   )
