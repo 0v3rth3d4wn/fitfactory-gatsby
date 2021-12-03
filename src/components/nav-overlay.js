@@ -46,7 +46,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
         layout="fullWidth"
         className="fixed inset-0 hidden sm:block"
         loading="eager"
-        quality="100"
+        quality="95"
         breakpoints={[480, 750, 1080]}
         style={{ position: 'fixed' }}
       />
