@@ -6,7 +6,7 @@ import Nav from './nav'
 import Logo from './logo'
 
 const Header = () => {
-  const headerHeight = 72
+  const headerHeight = 88
   const scrollY = useScrollPosition(60)
   let isHeaderVisible = true
 
@@ -24,12 +24,12 @@ const Header = () => {
    * otherwise we are scrolling down (the current scrollY becomes larger) thus we are hiding the header
    * Trying to emulate Headroom.js on a basic level
    */
-  isHeaderVisible = scrollY <= prevScrollYRef.current
+  isHeaderVisible = scrollY <= prevScrollYRef.current || scrollY < headerHeight
 
   return (
     <>
       <header
-        className={`px-4 py-2 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-center z-40 ${
+        className={`p-4 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-center z-40 ${
           scrollY < headerHeight ? 'bg-transparent' : 'bg-black shadow'
         } duration-300 transition-all ${
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'

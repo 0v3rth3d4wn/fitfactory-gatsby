@@ -21,7 +21,7 @@ const navItemsQuery = graphql`
   }
 `
 
-const NavOverlay = ({ onClick }) => {
+const NavOverlay = ({ onClick: hideOverlay }) => {
   const {
     wpMenu: {
       menuItems: { nodes: navItems },
@@ -31,16 +31,20 @@ const NavOverlay = ({ onClick }) => {
   return ReactDom.createPortal(
     <div className="fixed inset-0 bg-black z-50">
       <StaticImage
-        src="../assets/images/backgrounds/working-hours-bgr.jpg"
+        src="../assets/images/backgrounds/business-hours-bgr.jpg"
+        alt="Nav overlay background"
         layout="fullWidth"
         className="fixed inset-0"
+        loading="eager"
+        quality="75"
+        breakpoints={[480, 750, 1080]}
         style={{ position: 'fixed' }}
       />
       {/* Close nav btn */}
       <button
         className="absolute top-4 right-4 block"
         type="button"
-        onClick={onClick}
+        onClick={hideOverlay}
       >
         <XIcon className="text-white w-10 h-10 " />
       </button>

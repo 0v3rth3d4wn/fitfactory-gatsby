@@ -30,7 +30,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-intersection-observer": "^8.32.1",
-    "react-obfuscate": "^3.6.8"
+    "react-obfuscate": "^3.6.8",
+    "string-strip-html": "^9.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.3.3",

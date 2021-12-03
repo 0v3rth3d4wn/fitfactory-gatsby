@@ -3,17 +3,21 @@ import React from 'react'
 
 const buttonStyles = {
   primary:
-    'inline-block uppercase text-white border-4 border-white text-2xl border-solid font-bold py-3 px-2 hover:border-primary focus:border-primary hover:text-primary focus:text-primary transition-colors duration-300',
+    'inline-block uppercase text-white border-4 border-primary text-lg border-solid font-bold py-1 leading-[2rem] px-3 hover:bg-primary focus:bg-primary hover:text-black focus:text-black transition-colors duration-300 tracking-widest',
 }
 
 const Button = ({
   to,
   style = 'primary',
-  className,
+  className = '',
   children,
   out = false,
   ...props
 }) => {
+  // const mergedClassName = [
+  //   ...new Set([...buttonStyles[style].split(' '), ...className.split(' ')]),
+  // ]
+
   const button = (
     <button
       type="button"

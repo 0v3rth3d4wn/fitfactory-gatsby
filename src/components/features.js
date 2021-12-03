@@ -1,12 +1,6 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
+import { StaticImage, GatsbyImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from 'gatsby'
-import Access from '../assets/images/features/access.svg'
-import Cardio from '../assets/images/features/cardio.svg'
-import Flex from '../assets/images/features/flex.svg'
-import Protein from '../assets/images/features/protein.svg'
-import Sauna from '../assets/images/features/sauna.svg'
-import Solarium from '../assets/images/features/solarium.svg'
 
 // Get all features
 const featuresQuery = graphql`
@@ -15,23 +9,25 @@ const featuresQuery = graphql`
       features {
         features {
           feature {
-            icon
             name
+            icon {
+              altText
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    layout: FULL_WIDTH
+                    placeholder: BLURRED
+                    quality: 100
+                  )
+                }
+              }
+            }
           }
         }
       }
     }
   }
 `
-// Icons for each features imported as SVG and used like a component
-const icons = {
-  access: Access,
-  cardio: Cardio,
-  flex: Flex,
-  protein: Protein,
-  sauna: Sauna,
-  solarium: Solarium,
-}
 
 const Features = () => {
   const {
@@ -44,25 +40,22 @@ const Features = () => {
     features && (
       <div className="relative overflow-hidden">
         <div className="flex flex-wrap relative justify-between items-center">
-          {features.map(({ feature }, index) => (
+          {features.map(({ feature: { icon, name } }, index) => (
             <div
               key={index}
-              className="w-1/2 text-center relative after:block after:pb-[100%]"
+              className="w-1/2 sm:w-1/3 text-center relative square sm:rectangle"
             >
               <div className="absolute w-full flex flex-wrap flex-col items-center justify-center h-full px-4 py-4">
-                {/* {icons[feature.icon] &&
-                  React.createElement(icons[feature.icon], {
-                    className: 'block mb-3 ',
-                  })} */}
-                <StaticImage
-                  src="../assets/images/features/test-feature-bg.jpg"
-                  alt={feature.name}
-                  layout="fullWidth"
-                  className="absolute block inset-0 w-full h-auto z-[9]"
-                  style={{ position: 'absolute' }}
-                />
-                <div className="text-white tracking-widest uppercase relative z-10 font-semibold leading-4 text-shadow">
-                  {feature.name}
+                {icon && (
+                  <GatsbyImage
+                    alt={icon.altText}
+                    image={icon.localFile.childImageSharp.gatsbyImageData}
+                    className="absolute block inset-0 w-full h-auto z-[9]"
+                    style={{ position: 'absolute' }}
+                  />
+                )}
+                <div className="text-white text-lg tracking-widest uppercase z-10 text-shadow sm:font-medium stretched">
+                  {name}
                 </div>
               </div>
             </div>

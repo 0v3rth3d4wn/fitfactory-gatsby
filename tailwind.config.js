@@ -18,6 +18,9 @@ module.exports = {
         black: '#211F20',
         gray: '#9C9C9C',
       },
+      letterSpacing: {
+        widest: '.15em',
+      },
     },
   },
   variants: {

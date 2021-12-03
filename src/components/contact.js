@@ -75,10 +75,20 @@ const Contact = () => {
   return (
     <div className="relative overflow-hidden">
       <StaticImage
-        alt="Black grid background"
-        className="absolute block inset-0 w-full h-full"
+        alt="Contact area background"
+        className="absolute block sm:hidden inset-0 w-full h-full"
         layout="fullWidth"
         src="../assets/images/backgrounds/contact-bgr.jpg"
+        quality="75"
+        objectPosition="bottom"
+        style={{ position: 'absolute' }}
+      />
+
+      <StaticImage
+        alt="Contact area background"
+        className="absolute hidden inset-0 w-full h-full sm:block"
+        layout="fullWidth"
+        src="../assets/images/backgrounds/contact-large-bgr.jpg"
         quality="75"
         objectPosition="bottom"
         style={{ position: 'absolute' }}
@@ -87,7 +97,7 @@ const Contact = () => {
         <Separator className="mb-6" />
         {/* Contact heading */}
         {contactHeading && (
-          <h2 className="text-primary text-2xl text-center uppercase font-bold mb-12">
+          <h2 className="text-gray text-lg mb-12 text-center uppercase font-medium tracking-widest">
             {contactHeading}
           </h2>
         )}
@@ -101,7 +111,10 @@ const Contact = () => {
                 key={index}
               >
                 <div className="text-center w-16 flex flex-wrap mr-4 items-center justify-center">
-                  {icons[icon] && React.createElement(icons[icon])}
+                  {icons[icon] &&
+                    React.createElement(icons[icon], {
+                      className: 'text-gray',
+                    })}
                 </div>
                 <div className="flex-1 text-white text-left text-base">
                   {transport}
@@ -122,14 +135,16 @@ const Contact = () => {
 
         {/* Adress */}
         {address && (
-          <div className="mb-6 leading-5">
+          <div className="mb-8">
             {address.location && (
-              <div className="text-white text-xl font-bold">
+              <div className="text-gray text-lg text-center uppercase font-bold">
                 {address.location}
               </div>
             )}
             {address.additionalInformation && (
-              <div className="text-white">{address.additionalInformation}</div>
+              <div className="text-gray text-base text-center">
+                {address.additionalInformation}
+              </div>
             )}
           </div>
         )}
@@ -137,13 +152,13 @@ const Contact = () => {
         {/* Phone and email */}
         {phoneNumber && (
           <Obfuscate
-            className="font-bold text-4xl text-white mb-12"
+            className="text-gray text-2xl mb-8 text-center uppercase font-bold"
             tel={phoneNumber}
           />
         )}
         {emailAddress && (
           <Obfuscate
-            className="text-2xl uppercase font-bold text-white mb-12"
+            className="text-gray text-2xl mb-12 text-center uppercase font-bold"
             email={emailAddress}
             headers={{
               subject: 'Съобщение от FitFactory 24/7',

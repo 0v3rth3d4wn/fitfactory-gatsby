@@ -10,6 +10,7 @@ const businessHoursQuery = graphql`
     wpPage(isFrontPage: { eq: true }) {
       businessHours {
         businessHoursHeading
+        businessHoursSubheading
         businessHoursLink {
           target
           title
@@ -27,7 +28,7 @@ const businessHoursQuery = graphql`
 function BusinessHours() {
   const {
     wpPage: {
-      businessHours: { businessHoursHeading },
+      businessHours: { businessHoursHeading, businessHoursSubheading },
     },
     wpPage: {
       businessHours: { ranges: businessHoursRanges },
@@ -41,27 +42,45 @@ function BusinessHours() {
       <div className="relative overflow-hidden">
         <StaticImage
           alt="Black grid background"
-          className="absolute block inset-0 w-full h-full"
+          className="absolute block inset-0 w-full h-full sm:hidden"
           layout="fullWidth"
-          src="../assets/images/backgrounds/working-hours-bgr.jpg"
+          src="../assets/images/backgrounds/business-hours-bgr.jpg"
+          loading="eager"
           quality="75"
-          objectPosition="center top"
+          breakpoints={[480, 750, 1080]}
+          objectPosition="center center"
           style={{ position: 'absolute' }}
         />
-        <div className="px-4 py-12 relative z-30 flex flex-wrap items-center justify-center text-center">
-          <Separator className="mb-8" />
+        <StaticImage
+          alt="Black grid background"
+          className="absolute hidden sm:block inset-0 w-full h-full"
+          layout="fullWidth"
+          src="../assets/images/backgrounds/business-hours-large-bgr.jpg"
+          loading="eager"
+          quality="85"
+          breakpoints={[750, 1080, 2560]}
+          objectPosition="center center"
+          style={{ position: 'absolute' }}
+        />
+        <div className="px-4 py-16 relative z-30 flex flex-wrap items-center justify-center text-center">
           {businessHoursHeading && (
-            <h2 className="text-white text-2xl text-center uppercase font-bold mb-6">
+            <h2 className="text-primary text-5xl font-bold mb-12 uppercase">
               {businessHoursHeading}
             </h2>
           )}
+          {businessHoursSubheading && (
+            <h3 className="text-gray text-lg text-center uppercase mb-1 font-medium tracking-widest">
+              {businessHoursSubheading}
+            </h3>
+          )}
+          <Separator className="mb-12 text-white" />
 
           {businessHoursRanges.map((range, index) => (
-            <div className="mb-11" key={index}>
-              <div className="text-base mb-2 uppercase text-gray font-semibold tracking-widest">
+            <div className="mb-12" key={index}>
+              <div className=" text-lg uppercase text-gray font-medium tracking-widest">
                 {range.days}
               </div>
-              <div className="text-gray font-bold text-5xl">{range.time}</div>
+              <div className="text-white font-bold text-5xl">{range.time}</div>
             </div>
           ))}
 
@@ -70,7 +89,7 @@ function BusinessHours() {
               {businessHoursLink.title}
             </Button>
           )}
-          <Separator className="rotate-180" />
+          <Separator className="rotate-180 text-white" />
         </div>
       </div>
     )

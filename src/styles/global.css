@@ -4,10 +4,28 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    --body-overflow: auto;
+  }
   body {
     @apply font-sans;
+    overflow: var(--body-overflow);
+  }
+
+  .stretched::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: auto;
+    content: "";
+    background-color: rgba(0,0,0,0);
   }
 }
+
+
 
 @responsive {
   .text-shadow {
@@ -24,5 +42,13 @@
 
   .text-shadow-none {
     text-shadow: none;
+  }
+
+  .square {
+    aspect-ratio: 1/1;
+  }
+
+  .rectangle {
+    aspect-ratio: 1.54/1;
   }
 }

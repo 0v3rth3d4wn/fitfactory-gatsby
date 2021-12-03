@@ -14,7 +14,8 @@ module.exports = {
          * The full URL of the WordPress site's GraphQL API.
          * Example : 'https://www.example-site.com/graphql'
          */
-        url: `https://admin.fitfactory.bg/graphql`,
+        // url: `https://admin.fitfactory.bg/graphql`,
+        url: `http://fitfactory.test/graphql`,
       },
     },
     `gatsby-plugin-image`,
