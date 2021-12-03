@@ -1,0 +1,43 @@
+.index-bottom-area {
+  display: grid;
+}
+
+
+@screen sm {
+  .index-bottom-area {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+      "about about"
+      "contact business"
+      "address address";
+  }
+
+  .business-area {
+    grid-area: business;
+  }
+
+  .about-area {
+    grid-area: about;
+  }
+
+  .contact-area {
+    grid-area: contact;
+  }
+
+  .address-area {
+    grid-area: address;
+  }
+
+  .business-area-content {
+    margin-right: auto;
+  }
+
+  .contact-area-content {
+    margin-left: auto;
+  }
+
+  .business-area-content,
+  .contact-area-content {
+    max-width: 40rem;
+  }
+}

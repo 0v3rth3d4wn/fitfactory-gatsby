@@ -34,9 +34,19 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
         src="../assets/images/backgrounds/business-hours-bgr.jpg"
         alt="Nav overlay background"
         layout="fullWidth"
-        className="fixed inset-0"
+        className="fixed inset-0 sm:hidden"
         loading="eager"
         quality="75"
+        breakpoints={[480, 750, 1080]}
+        style={{ position: 'fixed' }}
+      />
+      <StaticImage
+        src="../assets/images/backgrounds/business-hours-large-bgr.jpg"
+        alt="Nav overlay background"
+        layout="fullWidth"
+        className="fixed inset-0 hidden sm:block"
+        loading="eager"
+        quality="100"
         breakpoints={[480, 750, 1080]}
         style={{ position: 'fixed' }}
       />

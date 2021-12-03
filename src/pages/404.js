@@ -1,5 +1,5 @@
 import React from 'react'
 
-const fourOhFour = () => <div>404</div>
+const FourOhFour = () => <div>404</div>
 
-export default fourOhFour
+export default FourOhFour

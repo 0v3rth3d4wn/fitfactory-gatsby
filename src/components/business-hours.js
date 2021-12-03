@@ -39,7 +39,7 @@ function BusinessHours() {
   } = useStaticQuery(businessHoursQuery)
   return (
     businessHoursRanges && (
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden business-area ">
         <StaticImage
           alt="Black grid background"
           className="absolute block inset-0 w-full h-full sm:hidden"
@@ -51,7 +51,7 @@ function BusinessHours() {
           objectPosition="center center"
           style={{ position: 'absolute' }}
         />
-        <StaticImage
+        {/* <StaticImage
           alt="Black grid background"
           className="absolute hidden sm:block inset-0 w-full h-full"
           layout="fullWidth"
@@ -61,22 +61,22 @@ function BusinessHours() {
           breakpoints={[750, 1080, 2560]}
           objectPosition="center center"
           style={{ position: 'absolute' }}
-        />
-        <div className="px-4 py-16 relative z-30 flex flex-wrap items-center justify-center text-center">
+        /> */}
+        <div className="business-area-content px-4 py-16 relative z-30 flex flex-wrap flex-col items-center justify-center text-center">
           {businessHoursHeading && (
-            <h2 className="text-primary text-5xl font-bold mb-12 uppercase">
+            <h2 className="text-primary text-5xl font-bold mb-12   uppercase sm:hidden">
               {businessHoursHeading}
             </h2>
           )}
           {businessHoursSubheading && (
-            <h3 className="text-gray text-lg text-center uppercase mb-1 font-medium tracking-widest">
+            <h3 className="text-gray text-lg text-center uppercase mb-1 font-medium tracking-widest sm:pt-4 sm:mb-16">
               {businessHoursSubheading}
             </h3>
           )}
-          <Separator className="mb-12 text-white" />
+          <Separator className="mb-12 sm:mb-8 text-white" />
 
           {businessHoursRanges.map((range, index) => (
-            <div className="mb-12" key={index}>
+            <div className="mb-12 sm:mb-8" key={index}>
               <div className=" text-lg uppercase text-gray font-medium tracking-widest">
                 {range.days}
               </div>
@@ -84,12 +84,14 @@ function BusinessHours() {
             </div>
           ))}
 
+          <Separator className="rotate-180 text-white hidden sm:block sm:mb-12" />
+
           {businessHoursLink && (
             <Button className="mb-8" to={businessHoursLink.url}>
               {businessHoursLink.title}
             </Button>
           )}
-          <Separator className="rotate-180 text-white" />
+          <Separator className="rotate-180 text-white sm:hidden" />
         </div>
       </div>
     )

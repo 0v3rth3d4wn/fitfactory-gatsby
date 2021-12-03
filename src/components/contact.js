@@ -2,11 +2,11 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Obfuscate from 'react-obfuscate'
-import Separator from '../assets/images/separator.svg'
 import Button from './button'
 import Bus from '../assets/images/transportation/bus.svg'
 import Tram from '../assets/images/transportation/tram.svg'
 import Subway from '../assets/images/transportation/subway.svg'
+import Address from './Address'
 
 // Get call data for the contact component + some info from the options
 const contactQuery = graphql`
@@ -73,7 +73,7 @@ const Contact = () => {
     },
   } = useStaticQuery(contactQuery)
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative overflow-hidden contact-area">
       <StaticImage
         alt="Contact area background"
         className="absolute block sm:hidden inset-0 w-full h-full"
@@ -84,20 +84,19 @@ const Contact = () => {
         style={{ position: 'absolute' }}
       />
 
-      <StaticImage
+      {/* <StaticImage
         alt="Contact area background"
-        className="absolute hidden inset-0 w-full h-full sm:block"
+        className="absolute hidden inset-0 w-full h-full"
         layout="fullWidth"
-        src="../assets/images/backgrounds/contact-large-bgr.jpg"
+        src="../assets/images/backgrounds/business-hours-large-bgr.jpg"
         quality="75"
         objectPosition="bottom"
         style={{ position: 'absolute' }}
-      />
-      <div className="px-4 pt-12 relative z-30 flex flex-wrap items-center justify-center text-center">
-        <Separator className="mb-6" />
+      /> */}
+      <div className="contact-area-content px-4 pt-20 relative z-30 flex flex-col flex-wrap items-center justify-center text-center">
         {/* Contact heading */}
         {contactHeading && (
-          <h2 className="text-gray text-lg mb-12 text-center uppercase font-medium tracking-widest">
+          <h2 className="text-gray text-lg mb-12 sm:mb-20 text-center uppercase font-medium tracking-widest">
             {contactHeading}
           </h2>
         )}
@@ -113,10 +112,10 @@ const Contact = () => {
                 <div className="text-center w-16 flex flex-wrap mr-4 items-center justify-center">
                   {icons[icon] &&
                     React.createElement(icons[icon], {
-                      className: 'text-gray',
+                      className: 'text-gray sm:w-16 sm:h-16',
                     })}
                 </div>
-                <div className="flex-1 text-white text-left text-base">
+                <div className="flex-1 text-white text-left text-base sm:text-lg sm:font-medium sm:uppercase">
                   {transport}
                 </div>
               </div>
@@ -133,38 +132,7 @@ const Contact = () => {
           </div>
         )}
 
-        {/* Adress */}
-        {address && (
-          <div className="mb-8">
-            {address.location && (
-              <div className="text-gray text-lg text-center uppercase font-bold">
-                {address.location}
-              </div>
-            )}
-            {address.additionalInformation && (
-              <div className="text-gray text-base text-center">
-                {address.additionalInformation}
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Phone and email */}
-        {phoneNumber && (
-          <Obfuscate
-            className="text-gray text-2xl mb-8 text-center uppercase font-bold"
-            tel={phoneNumber}
-          />
-        )}
-        {emailAddress && (
-          <Obfuscate
-            className="text-gray text-2xl mb-12 text-center uppercase font-bold"
-            email={emailAddress}
-            headers={{
-              subject: 'Съобщение от FitFactory 24/7',
-            }}
-          />
-        )}
+        <Address className="flex flex-wrap flex-col sm:hidden" />
       </div>
     </div>
   )

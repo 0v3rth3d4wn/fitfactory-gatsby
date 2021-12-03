@@ -3,7 +3,7 @@ import React from 'react'
 
 const buttonStyles = {
   primary:
-    'inline-block uppercase text-white border-4 border-primary text-lg border-solid font-bold py-1 leading-[2rem] px-3 hover:bg-primary focus:bg-primary hover:text-black focus:text-black transition-colors duration-300 tracking-widest',
+    'inline-block text-center uppercase text-white border-4 border-primary text-lg border-solid font-medium py-1 leading-[2rem] px-3 hover:bg-primary focus:bg-primary hover:text-black focus:text-black transition-colors duration-300 tracking-widest sm:min-w-[16rem]',
 }
 
 const Button = ({
