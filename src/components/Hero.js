@@ -5,7 +5,7 @@ import { useWindowHeight } from '@react-hook/window-size'
 import { stripHtml } from 'string-strip-html'
 import ScrollDown from '../assets/images/scroll-down.svg'
 
-import Button from './button'
+import Button from './Button'
 
 // Hero data graphql
 const heroQuery = graphql`

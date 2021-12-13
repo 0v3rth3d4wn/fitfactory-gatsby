@@ -2,9 +2,9 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { useStaticQuery, graphql } from 'gatsby'
 import Separator from '../assets/images/separator.svg'
-import Button from './button'
+import Button from './Button'
 
-const about = () => (
+const About = () => (
   <div className="relative overflow-hidden pt-11 sm:pt-24 about-area">
     <StaticImage
       alt="Black grid background"
@@ -54,4 +54,4 @@ const about = () => (
   </div>
 )
 
-export default about
+export default About

@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from './src/components/layout'
+import Layout from './src/components/Layout'
 import { NavContextProvider } from './src/store/nav-context'
 
 export function wrapPageElement({ element, props }) {

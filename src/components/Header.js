@@ -2,8 +2,16 @@ import React, { useEffect, useRef } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import useScrollPosition from '@react-hook/window-scroll'
 import { Link } from 'gatsby'
-import Nav from './nav'
-import Logo from './logo'
+import Nav from './Nav'
+import Logo from './Logo'
+
+const FitSysLink = React.memo(({ to = '' }) => (
+  <Link to={to} className="absolute top-1/2 -translate-y-1/2 left-4">
+    <LockClosedIcon className="text-white w-10 h-10" />
+  </Link>
+))
+
+FitSysLink.displayName = 'FitSysLink'
 
 const Header = () => {
   const headerHeight = 88
@@ -35,9 +43,7 @@ const Header = () => {
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <Link to="#" className="absolute top-1/2 -translate-y-1/2 left-4">
-          <LockClosedIcon className="text-white w-10 h-10" />
-        </Link>
+        <FitSysLink />
         <Logo />
         <Nav />
       </header>

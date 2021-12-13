@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import NavOverlay from './nav-overlay'
+import NavOverlay from './NavOverlay'
 import NavContext from '../store/nav-context'
 
 const Nav = () => {
@@ -18,4 +18,4 @@ const Nav = () => {
   )
 }
 
-export default Nav
+export default React.memo(Nav)

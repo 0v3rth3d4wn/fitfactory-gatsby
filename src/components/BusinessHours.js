@@ -2,7 +2,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Separator from '../assets/images/separator.svg'
-import Button from './button'
+import Button from './Button'
 
 // Get business hours title and rangers
 const businessHoursQuery = graphql`
@@ -64,7 +64,7 @@ function BusinessHours() {
         /> */}
         <div className="business-area-content px-4 py-16 relative z-30 flex flex-wrap flex-col items-center justify-center text-center">
           {businessHoursHeading && (
-            <h2 className="text-primary text-5xl font-bold mb-12   uppercase sm:hidden">
+            <h2 className="text-primary text-5xl font-bold mb-12 uppercase sm:hidden">
               {businessHoursHeading}
             </h2>
           )}
