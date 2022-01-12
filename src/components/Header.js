@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <>
       <header
-        className={`p-4 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-center z-40 ${
+        className={`p-4 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-center z-[60] ${
           scrollY < headerHeight ? 'bg-transparent' : 'bg-black shadow'
         } duration-300 transition-all ${
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'

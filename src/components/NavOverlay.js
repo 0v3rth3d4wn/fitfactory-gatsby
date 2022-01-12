@@ -51,13 +51,13 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
         style={{ position: 'fixed' }}
       />
       {/* Close nav btn */}
-      <button
+      {/* <button
         className="absolute top-4 right-4 block"
         type="button"
         onClick={hideOverlay}
       >
         <XIcon className="text-white w-10 h-10 " />
-      </button>
+      </button> */}
 
       {/* Nav with nav items from graphql query */}
       {navItems && (
@@ -68,6 +68,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
                 <Link
                   className="text-white hover:text-primary transition-colors duration-300 font-bold text-2xl uppercase mb-6 block"
                   to={navItem.url}
+                  onClick={hideOverlay}
                 >
                   {navItem.label}
                 </Link>
