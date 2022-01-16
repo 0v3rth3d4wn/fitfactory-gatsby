@@ -13,10 +13,10 @@ const index = () => (
   <div className="">
     <Hero />
     <Features />
-    <div className="index-bottom-area relative">
+    <div className="relative index-bottom-area">
       <StaticImage
         alt="Contact area background"
-        className="absolute hidden inset-0 w-full h-full sm:block"
+        className="hidden absolute inset-0 w-full h-full sm:block"
         layout="fullWidth"
         src="../assets/images/backgrounds/contact-large-bgr.jpg"
         quality="75"
@@ -26,7 +26,7 @@ const index = () => (
       <BusinessHours />
       <About />
       <Contact />
-      <Address className="address-area sm:grid-cols-3 sm:grid sm:pt-16 hidden sm:relative sm:px-4 sm:mx-auto max-w-7xl" />
+      <Address className="hidden max-w-7xl sm:grid sm:relative sm:grid-cols-3 sm:px-4 sm:pt-16 sm:mx-auto address-area" />
     </div>
   </div>
 )

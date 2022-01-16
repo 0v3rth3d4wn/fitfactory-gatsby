@@ -62,17 +62,6 @@ const createPageTemplatePages = async ({ graphql, actions, reporter }) => {
       }
     `)
 
-      // {
-      //   pages: allWpPage(
-      //     filter: {isFrontPage: {eq: false}, template: {templateName: {eq: "Default"}}, status: {eq: "publish"}}
-      //   ) {
-      //     nodes {
-      //       slug
-      //       databaseId
-      //     }
-      //   }
-      // }
-
       // Handle errors
       if (errors) {
         reporter.panicOnBuild(`Error while running GraphQL query.`)
@@ -80,7 +69,7 @@ const createPageTemplatePages = async ({ graphql, actions, reporter }) => {
       }
 
       // Create all pages that have the current template
-      await data.pages.nodes.forEach(page => {
+      data.pages.nodes.forEach(page => {
         createPage({
           path: page.slug,
           component: pageTemplate,

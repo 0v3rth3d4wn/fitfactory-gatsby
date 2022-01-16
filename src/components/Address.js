@@ -46,12 +46,12 @@ const Address = ({ className = '' }) => {
       {address && (
         <div className="mb-8">
           {address.location && (
-            <div className="text-gray text-lg text-center uppercase font-bold">
+            <div className="text-lg font-bold text-center text-gray uppercase">
               {address.location}
             </div>
           )}
           {address.additionalInformation && (
-            <div className="text-gray text-base text-center">
+            <div className="text-base text-center text-gray">
               {address.additionalInformation}
             </div>
           )}
@@ -61,13 +61,13 @@ const Address = ({ className = '' }) => {
       {/* Phone and email */}
       {phoneNumber && (
         <Obfuscate
-          className="text-gray text-2xl mb-8 text-center uppercase font-bold"
+          className="mb-8 text-2xl font-bold text-center text-gray uppercase"
           tel={phoneNumber}
         />
       )}
       {emailAddress && (
         <Obfuscate
-          className="text-gray text-2xl mb-12 text-center uppercase font-bold"
+          className="mb-12 text-2xl font-bold text-center text-gray uppercase"
           email={emailAddress}
           headers={{
             subject: 'Съобщение от FitFactory 24/7',
