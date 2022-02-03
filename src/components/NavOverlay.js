@@ -29,7 +29,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
   } = useStaticQuery(navItemsQuery)
 
   return ReactDom.createPortal(
-    <div className="fixed inset-0 bg-black z-50">
+    <div className="fixed inset-0 z-50 bg-black">
       <StaticImage
         src="../assets/images/backgrounds/business-hours-bgr.jpg"
         alt="Nav overlay background"
@@ -44,7 +44,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
         src="../assets/images/backgrounds/business-hours-large-bgr.jpg"
         alt="Nav overlay background"
         layout="fullWidth"
-        className="fixed inset-0 hidden sm:block"
+        className="hidden fixed inset-0 sm:block"
         loading="eager"
         quality="95"
         breakpoints={[480, 750, 1080]}
@@ -61,12 +61,12 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
 
       {/* Nav with nav items from graphql query */}
       {navItems && (
-        <nav className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full px-4 text-center">
+        <nav className="absolute inset-x-0 top-1/2 px-4 w-full text-center -translate-y-1/2">
           <ul>
             {navItems.map((navItem, index) => (
               <li key={index}>
                 <Link
-                  className="text-white hover:text-primary transition-colors duration-300 font-bold text-2xl uppercase mb-6 block"
+                  className="block mb-6 text-2xl font-bold text-white hover:text-primary uppercase transition-colors duration-300"
                   to={navItem.url}
                   onClick={hideOverlay}
                 >

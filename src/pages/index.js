@@ -26,7 +26,7 @@ const index = () => (
       <BusinessHours />
       <About />
       <Contact />
-      <Address className="hidden max-w-7xl sm:grid sm:relative sm:grid-cols-3 sm:px-4 sm:pt-16 sm:mx-auto address-area" />
+      <Address className="hidden max-w-7xl md:grid md:relative md:grid-cols-3 md:px-4 md:pt-16 md:mx-auto address-area" />
     </div>
   </div>
 )

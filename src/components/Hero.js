@@ -64,10 +64,10 @@ const Hero = () => {
   }, [windowHeight])
 
   return (
-    <div className="h-screen bg-black text-white pt-[4.5rem] relative">
+    <div className="relative pt-[4.5rem] h-screen text-white bg-black">
       {/* Base bg xs */}
       <StaticImage
-        className="absolute block object-cover h-full w-full inset-0 sm:hidden"
+        className="block object-cover absolute inset-0 w-full h-full sm:hidden"
         src="../assets/images/backgrounds/hero/hero-base-bgr.jpg"
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
@@ -79,7 +79,7 @@ const Hero = () => {
 
       {/* Base bg sm and up */}
       <StaticImage
-        className="absolute sm:block object-cover h-full w-full inset-0 hidden"
+        className="hidden object-cover absolute inset-0 w-full h-full sm:block"
         src="../assets/images/backgrounds/hero/hero-base-large-bgr.jpg"
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
@@ -91,7 +91,7 @@ const Hero = () => {
 
       {/* Top bg xs */}
       <StaticImage
-        className="absolute block object-cover h-full w-full inset-0 sm:hidden"
+        className="block object-cover absolute inset-0 w-full h-full sm:hidden"
         src="../assets/images/backgrounds/hero/hero-top-bgr.jpg"
         alt="FitFactory 24/7 hero image overlay with logo"
         layout="fullWidth"
@@ -103,7 +103,7 @@ const Hero = () => {
 
       {/* Top bg sm and up */}
       <StaticImage
-        className="absolute sm:block object-cover h-full w-full inset-0 hidden"
+        className="hidden object-cover absolute inset-0 w-full h-full sm:block"
         src="../assets/images/backgrounds/hero/hero-top-large-bgr.jpg"
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
@@ -113,10 +113,10 @@ const Hero = () => {
         style={{ position: 'absolute' }}
       />
 
-      <div className="absolute h-full mx-auto sm:max-w-7xl inset-0">
+      <div className="absolute inset-0 mx-auto h-full sm:max-w-7xl">
         {/* Headline is only visible on sm and up and split on 3 lines */}
         {headline && (
-          <div className="hidden sm:flex absolute z-30 h-full w-full sm:w-1/2 top-0 left-0 flex-wrap flex-col justify-end items-start px-12 pb-24">
+          <div className="hidden absolute top-0 left-0 z-30 flex-col flex-wrap justify-end items-start px-12 pb-24 w-full h-full sm:flex sm:w-1/2">
             {headline
               .split('<br />')
               .map(line => stripHtml(line).result)
@@ -139,8 +139,8 @@ const Hero = () => {
               })}
           </div>
         )}
-        <ScrollDown className="hidden sm:block text-primary absolute left-1/2 -translate-x-1/2 bottom-11" />
-        <div className="absolute z-30 h-full w-full sm:w-1/2 sm:items-end sm:left-auto sm:right-0 top-0 left-0 flex flex-wrap flex-col justify-end items-center px-4 sm:px-12 sm:pb-28">
+        <ScrollDown className="hidden absolute bottom-11 left-1/2 text-primary -translate-x-1/2 sm:block" />
+        <div className="flex absolute top-0 left-0 z-30 flex-col flex-wrap justify-end items-center px-4 w-full h-full sm:right-0 sm:left-auto sm:items-end sm:px-12 sm:pb-28 sm:w-1/2">
           {/* CTA Button */}
           {cta && (
             <Button to={cta.url} className="mb-11 sm:order-2 sm:mb-0">
@@ -150,7 +150,7 @@ const Hero = () => {
 
           {/* Hero heading */}
           {heading && (
-            <h1 className="text-gray tracking-widest text-center text-lg uppercase font-medium mb-11 sm:order-1 sm:mb-2">
+            <h1 className="mb-11 text-lg font-medium tracking-widest text-center text-gray uppercase sm:order-1 sm:mb-2">
               {heading}
             </h1>
           )}

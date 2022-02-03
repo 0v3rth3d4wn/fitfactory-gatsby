@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import Obfuscate from 'react-obfuscate'
+import ReactHtmlParser from 'react-html-parser'
 import Button from './Button'
 import Bus from '../assets/images/transportation/bus.svg'
 import Tram from '../assets/images/transportation/tram.svg'
@@ -73,10 +74,10 @@ const Contact = () => {
     },
   } = useStaticQuery(contactQuery)
   return (
-    <div className="relative overflow-hidden contact-area">
+    <div className="overflow-hidden relative contact-area">
       <StaticImage
         alt="Contact area background"
-        className="absolute block sm:hidden inset-0 w-full h-full"
+        className="block absolute inset-0 w-full h-full sm:hidden"
         layout="fullWidth"
         src="../assets/images/backgrounds/contact-bgr.jpg"
         quality="75"
@@ -93,30 +94,30 @@ const Contact = () => {
         objectPosition="bottom"
         style={{ position: 'absolute' }}
       /> */}
-      <div className="contact-area-content px-4 pt-20 relative z-30 flex flex-col flex-wrap items-center justify-center text-center">
+      <div className="flex relative z-30 flex-col flex-wrap justify-center items-center px-4 pt-20 text-center md:place-content-start md:px-12 md:pr-4 lg:pr-12 contact-area-content">
         {/* Contact heading */}
         {contactHeading && (
-          <h2 className="text-gray text-lg mb-12 sm:mb-20 text-center uppercase font-medium tracking-widest">
+          <h2 className="mb-12 text-lg font-medium tracking-widest text-center text-gray uppercase sm:mb-20">
             {contactHeading}
           </h2>
         )}
 
         {/* Transportation */}
         {transportation && (
-          <div className="mb-8 flex flex-wrap flex-col">
+          <div className="flex flex-col flex-wrap mb-8">
             {transportation.map(({ icon, transport }, index) => (
               <div
-                className="flex flex-wrap flex-row items-center justify-start mb-6"
+                className="flex flex-row flex-wrap justify-start items-center mb-6"
                 key={index}
               >
-                <div className="text-center w-16 flex flex-wrap mr-4 items-center justify-center">
+                <div className="flex flex-wrap justify-center items-center mr-4 w-16 text-center">
                   {icons[icon] &&
                     React.createElement(icons[icon], {
                       className: 'text-gray sm:w-16 sm:h-16',
                     })}
                 </div>
-                <div className="flex-1 text-white text-left text-base sm:text-lg sm:font-medium sm:uppercase">
-                  {transport}
+                <div className="flex-1 text-base text-left text-white sm:text-lg sm:font-medium sm:uppercase">
+                  {ReactHtmlParser(transport)}
                 </div>
               </div>
             ))}
@@ -132,7 +133,7 @@ const Contact = () => {
           </div>
         )}
 
-        <Address className="flex flex-wrap flex-col sm:hidden" />
+        <Address className="flex flex-col flex-wrap md:hidden" />
       </div>
     </div>
   )

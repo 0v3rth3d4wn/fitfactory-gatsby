@@ -57,6 +57,7 @@ const createPageTemplatePages = async ({ graphql, actions, reporter }) => {
           nodes {
             slug
             databaseId
+            title
           }
         }
       }
@@ -76,6 +77,7 @@ const createPageTemplatePages = async ({ graphql, actions, reporter }) => {
           context: {
             slug: page.slug,
             id: page.databaseId,
+            title: page.title,
           },
         })
       })

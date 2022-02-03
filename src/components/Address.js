@@ -61,13 +61,13 @@ const Address = ({ className = '' }) => {
       {/* Phone and email */}
       {phoneNumber && (
         <Obfuscate
-          className="mb-8 text-2xl font-bold text-center text-gray uppercase"
+          className="mb-8 text-2xl font-bold text-center text-gray hover:text-white focus:text-white uppercase transition-colors duration-300 md:text-xl lg:text-2xl"
           tel={phoneNumber}
         />
       )}
       {emailAddress && (
         <Obfuscate
-          className="mb-12 text-2xl font-bold text-center text-gray uppercase"
+          className="mb-12 text-2xl font-bold text-center text-gray hover:text-white focus:text-white uppercase transition-colors duration-300 md:text-xl lg:text-2xl"
           email={emailAddress}
           headers={{
             subject: 'Съобщение от FitFactory 24/7',

@@ -6,7 +6,28 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    // siteUrl: required (Gotcha: do not include a trailing slash at the end)
+    siteUrl: 'http://localhost:8000',
+  },
   plugins: [
+    {
+      resolve: `gatsby-plugin-breadcrumb`,
+      options: {
+        // useAutoGen: required 'true' to use autogen
+        useAutoGen: true,
+        // autoGenHomeLabel: optional 'Home' is default
+        autoGenHomeLabel: `Начало`,
+        // exclude: optional, include this array to exclude paths you don't want to
+        // generate breadcrumbs for (see below for details).
+        exclude: [
+          `**/dev-404-page/**`,
+          `**/404/**`,
+          `**/404.html`,
+          `**/offline-plugin-app-shell-fallback/**`,
+        ],
+      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-wordpress`,
@@ -15,8 +36,8 @@ module.exports = {
          * The full URL of the WordPress site's GraphQL API.
          * Example : 'https://www.example-site.com/graphql'
          */
-        url: `https://admin.fitfactory.bg/graphql`,
-        // url: `http://fitfactory.test/graphql`,
+        // url: `https://admin.fitfactory.bg/graphql`,
+        url: `http://admin.fitfactory.test/graphql`,
       },
     },
     `gatsby-plugin-image`,
