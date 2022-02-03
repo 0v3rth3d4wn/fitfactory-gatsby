@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import useScrollPosition from '@react-hook/window-scroll'
 import { Link } from 'gatsby'
+import NavContext from '../store/nav-context'
 import Nav from './Nav'
 import Logo from './Logo'
 
@@ -17,6 +18,7 @@ const Header = () => {
   const headerHeight = 88
   const scrollY = useScrollPosition(60)
   let isHeaderVisible = true
+  const { isNavOpen } = useContext(NavContext)
 
   // Use useRef to store the previous value of scrollY
   const prevScrollYRef = useRef(0)
@@ -38,7 +40,9 @@ const Header = () => {
     <>
       <header
         className={`p-4 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-center z-[60] ${
-          scrollY < headerHeight ? 'bg-transparent' : 'bg-black shadow'
+          scrollY < headerHeight || isNavOpen
+            ? 'bg-transparent'
+            : 'bg-black bg-opacity-60 backdrop-blur-sm shadow'
         } duration-300 transition-all ${
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
