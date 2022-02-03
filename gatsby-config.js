@@ -4,11 +4,15 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   /* Your site config here */
   siteMetadata: {
     // siteUrl: required (Gotcha: do not include a trailing slash at the end)
-    siteUrl: 'http://localhost:8000',
+    siteUrl: process.env.SITE_URL,
   },
   plugins: [
     {
@@ -37,7 +41,8 @@ module.exports = {
          * Example : 'https://www.example-site.com/graphql'
          */
         // url: `https://admin.fitfactory.bg/graphql`,
-        url: `http://admin.fitfactory.test/graphql`,
+        // url: `http://admin.fitfactory.test/graphql`,
+        url: process.env.ADMIN_GRAPHQL_URL,
       },
     },
     `gatsby-plugin-image`,
