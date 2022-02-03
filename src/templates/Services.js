@@ -31,6 +31,7 @@ const Services = ({ pageContext, data }) => {
             alt={service.name}
             className="absolute inset-0"
             image={service.background.localFile.childImageSharp.gatsbyImageData}
+            style={{ position: 'absolute' }}
           />
         )}
         <div
