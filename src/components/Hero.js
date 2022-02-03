@@ -72,7 +72,7 @@ const Hero = () => {
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
         loading="eager"
-        quality="95"
+        quality="85"
         breakpoints={[480, 750, 1080]}
         style={{ position: 'absolute' }}
       />
@@ -84,7 +84,7 @@ const Hero = () => {
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
         loading="eager"
-        quality="95"
+        quality="85"
         breakpoints={[750, 1080, 1920, 2560]}
         style={{ position: 'absolute' }}
       />
@@ -96,7 +96,7 @@ const Hero = () => {
         alt="FitFactory 24/7 hero image overlay with logo"
         layout="fullWidth"
         loading="eager"
-        quality="95"
+        quality="85"
         breakpoints={[480, 750, 1080]}
         style={{ position: 'absolute' }}
       />
@@ -108,7 +108,7 @@ const Hero = () => {
         alt="FitFactory 24/7 hero image base"
         layout="fullWidth"
         loading="eager"
-        quality="95"
+        quality="85"
         breakpoints={[750, 1080, 1920, 2560]}
         style={{ position: 'absolute' }}
       />

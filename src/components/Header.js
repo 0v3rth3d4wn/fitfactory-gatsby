@@ -5,7 +5,7 @@ import { Link } from 'gatsby'
 import Nav from './Nav'
 import Logo from './Logo'
 
-const FitSysLink = React.memo(({ to = '' }) => (
+const FitSysLink = React.memo(({ to = '##' }) => (
   <Link to={to} className="absolute top-1/2 left-4 -translate-y-1/2">
     <LockClosedIcon className="w-10 h-10 text-white" />
   </Link>

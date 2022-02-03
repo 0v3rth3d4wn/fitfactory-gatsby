@@ -14,6 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@fontsource/roboto": "^4.5.2",
     "@heroicons/react": "^1.0.4",
     "@react-hook/debounce": "^4.0.0",
     "@react-hook/size": "^2.1.2",
@@ -26,6 +27,7 @@
     "gatsby-plugin-image": "^2.6.0",
     "gatsby-plugin-react-svg": "^3.0.1",
     "gatsby-plugin-sharp": "^4.6.0",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-filesystem": "^4.2.0",
     "gatsby-source-wordpress": "^6.6.0",
     "gatsby-transformer-sharp": "^4.6.0",

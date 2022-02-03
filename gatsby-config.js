@@ -15,6 +15,7 @@ module.exports = {
     siteUrl: process.env.SITE_URL,
   },
   plugins: [
+    `gatsby-plugin-web-font-loader`,
     {
       resolve: `gatsby-plugin-breadcrumb`,
       options: {
