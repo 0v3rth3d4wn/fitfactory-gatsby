@@ -60,11 +60,11 @@ const Features = () => {
                 )}
                 <Link
                   to={link.url}
-                  className="z-10 text-lg tracking-widest text-white uppercase sm:font-medium text-shadow stretched"
+                  className="z-10 text-lg tracking-widest text-white uppercase group-hover:opacity-0 transition-all duration-300 group-hover:translate-y-[-100%] sm:font-medium text-shadow stretched"
                 >
                   {name}
                 </Link>
-                <div className="absolute bottom-4 z-10 text-sm tracking-widest text-center text-primary uppercase transition-transform duration-300 translate-y-[200%] group-hover:translate-y-0 sm:font-medium md:bottom-8 md:text-lg text-shadow">
+                <div className="absolute top-1/2 z-10 text-sm tracking-widest text-center text-primary uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-[50%] group-hover:-translate-y-1/2 sm:font-medium md:text-lg text-shadow">
                   Виж повече
                 </div>
               </div>

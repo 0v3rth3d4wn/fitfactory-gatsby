@@ -16,9 +16,8 @@ const Services = ({ pageContext, data }) => {
     breadcrumb: { crumbs },
   } = pageContext
 
-  console.log(pageContext)
-
   return (
+    // <div className="grid grid-cols-2 mx-auto max-w-7xl">
     services &&
     services.map((service, index) => (
       <div
@@ -26,18 +25,18 @@ const Services = ({ pageContext, data }) => {
         key={index}
         id={service.anchor ? service.anchor : ''}
       >
-        {service.background && (
+        {/* {service.background && (
           <GatsbyImage
             alt={service.name}
             className="absolute inset-0"
             image={service.background.localFile.childImageSharp.gatsbyImageData}
             style={{ position: 'absolute' }}
           />
-        )}
+        )} */}
         <div
           className={`${
-            index === 0 ? 'md:pb-16 xl:pb-24' : 'md:py-16 xl:py-24'
-          } relative py-6 px-4 mx-auto md:max-w-3xl xl:max-w-7xl`}
+            index === 0 ? 'md:pb-16 xl:pb-24' : 'md:py-16 xl:pb-24 xl:pt-0'
+          } relative py-6 px-6 mx-auto md:max-w-3xl xl:max-w-7xl`}
         >
           {pageContext.title && index === 0 && (
             <>
@@ -46,7 +45,7 @@ const Services = ({ pageContext, data }) => {
                 crumbSeparator=" - "
                 crumbLabel={pageContext.title}
               />
-              <h1 className="mt-0 mb-8 text-5xl font-bold text-left text-white uppercase">
+              <h1 className="mt-0 mb-8 text-5xl font-bold text-left text-gray uppercase">
                 {pageContext.title}
               </h1>
             </>
@@ -54,9 +53,9 @@ const Services = ({ pageContext, data }) => {
           {service.name && (
             <>
               {index > 0 && (
-                <Separator className="block mx-auto mb-6 text-white md:hidden" />
+                <Separator className="block mx-auto mb-16 text-white" />
               )}
-              <h2 className="mb-6 text-5xl font-bold text-center text-primary uppercase md:text-left">
+              <h2 className="mb-6 text-5xl font-bold text-left text-primary uppercase">
                 {service.name}
               </h2>
             </>
@@ -67,6 +66,7 @@ const Services = ({ pageContext, data }) => {
         </div>
       </div>
     ))
+    // </div>
   )
 }
 
