@@ -2,7 +2,7 @@ import React from 'react'
 import FFLogo from '../assets/images/logo.svg'
 
 const Logo = () => (
-  <a href="/" className="h-[56px] w-auto block">
+  <a href="/" className="block w-auto h-[56px]">
     <FFLogo className="w-full h-full" />
   </a>
 )

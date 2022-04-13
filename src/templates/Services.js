@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import ReactHtmlParser from 'react-html-parser'
-import { Breadcrumb } from 'gatsby-plugin-breadcrumb'
 import Separator from '../assets/images/separator.svg'
+import PageHeader from '../components/PageHeader'
 
 const Services = ({ pageContext, data }) => {
   const {
@@ -17,56 +17,32 @@ const Services = ({ pageContext, data }) => {
   } = pageContext
 
   return (
-    // <div className="grid grid-cols-2 mx-auto max-w-7xl">
-    services &&
-    services.map((service, index) => (
-      <div
-        className="relative"
-        key={index}
-        id={service.anchor ? service.anchor : ''}
-      >
-        {/* {service.background && (
-          <GatsbyImage
-            alt={service.name}
-            className="absolute inset-0"
-            image={service.background.localFile.childImageSharp.gatsbyImageData}
-            style={{ position: 'absolute' }}
-          />
-        )} */}
+    <>
+      <PageHeader pageTitle={pageContext.title} crumbs={crumbs} />
+      {services?.map((service, index) => (
         <div
-          className={`${
-            index === 0 ? 'md:pb-16 xl:pb-24' : 'md:py-16 xl:pb-24 xl:pt-0'
-          } relative py-6 px-6 mx-auto md:max-w-3xl xl:max-w-7xl`}
+          className="relative"
+          key={index}
+          id={service.anchor ? service.anchor : ''}
         >
-          {pageContext.title && index === 0 && (
-            <>
-              <Breadcrumb
-                crumbs={crumbs}
-                crumbSeparator=" - "
-                crumbLabel={pageContext.title}
-              />
-              <h1 className="mt-0 mb-8 text-5xl font-bold text-left text-gray uppercase">
-                {pageContext.title}
-              </h1>
-            </>
-          )}
-          {service.name && (
-            <>
-              {index > 0 && (
-                <Separator className="block mx-auto mb-16 text-white" />
-              )}
-              <h2 className="mb-6 text-5xl font-bold text-left text-primary uppercase">
-                {service.name}
-              </h2>
-            </>
-          )}
-          {service.content && (
-            <div className="content">{ReactHtmlParser(service.content)}</div>
-          )}
+          <div className="relative p-6 mx-auto md:py-16 md:max-w-3xl xl:pt-0 xl:pb-24 xl:max-w-7xl">
+            {service.name && (
+              <>
+                {index > 0 && (
+                  <Separator className="block mx-auto mb-20 text-white" />
+                )}
+                <h2 className="mb-6 text-5xl font-bold text-left text-primary uppercase">
+                  {service.name}
+                </h2>
+              </>
+            )}
+            {service.content && (
+              <div className="content">{ReactHtmlParser(service.content)}</div>
+            )}
+          </div>
         </div>
-      </div>
-    ))
-    // </div>
+      ))}
+    </>
   )
 }
 

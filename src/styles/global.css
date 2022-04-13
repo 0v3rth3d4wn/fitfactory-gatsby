@@ -64,9 +64,9 @@
   }
 }
 
-.breadcrumb {
+/* .breadcrumb {
   @apply mt-[5.5rem];
-}
+} */
 
 .breadcrumb__list {
   @apply flex flex-wrap gap-2 text-gray uppercase font-light text-sm;

@@ -12,7 +12,7 @@ const Layout = ({ children, path }) => {
         src="../assets/images/backgrounds/business-hours-large-bgr.jpg"
         alt="Nav overlay background"
         layout="fullWidth"
-        className="hidden fixed inset-0 sm:block"
+        className="block fixed inset-0"
         loading="eager"
         quality="95"
         breakpoints={[480, 750, 1080, 2560]}
